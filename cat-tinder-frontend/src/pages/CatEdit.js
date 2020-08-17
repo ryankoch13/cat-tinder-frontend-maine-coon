@@ -8,7 +8,7 @@ export class CatsHome extends Component {
         return (
             <div>
                 <Header />
-                
+                    
 
                 <Footer />
             </div>

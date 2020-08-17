@@ -1,4 +1,4 @@
-let catData = [
+let mockCats = [
     {
         id: 1,
         name: "Atilla",

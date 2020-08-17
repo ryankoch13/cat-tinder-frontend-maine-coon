@@ -14,9 +14,17 @@ import CatEdit from './pages/CatEdit.js';
 import NotFound from './pages/NotFound.js';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      catData: mockCats,
+    }
+  }
+
   render(props) {
     return (
         <React.Fragment>
+          {/* -----ROUTERS----- */}
           <Router>
             <Switch>
               <Route exact path = "/" component={ CatsHome }/>
@@ -27,6 +35,12 @@ class App extends Component {
               <Route component ={ NotFound }/>
             </Switch>
           </Router>
+
+          {/* -----PROPS----- */}
+          catData = {this.state.catData}
+         
+
+
         </React.Fragment>
     )
   }
