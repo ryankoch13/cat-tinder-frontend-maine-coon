@@ -6,6 +6,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
+
 import CatsHome from './pages/CatsHome.js';
 import CatIndex from './pages/CatIndex.js';
 import CatShow from './pages/CatShow.js';
@@ -17,18 +18,22 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      catData: mockCats,
+      cats: mockCats,
     }
   }
-
+  
   render(props) {
+    console.log(this.state.cats);
     return (
         <React.Fragment>
           {/* -----ROUTERS----- */}
           <Router>
             <Switch>
               <Route exact path = "/" component={ CatsHome }/>
-              <Route path = "/catindex" component ={ CatIndex }/>
+              <Route 
+                path = "/catindex" 
+                render={ (props) => <CatIndex cats={this.state.cats} /> } 
+              />
               <Route path = "/catshow/:id" component ={ CatShow }/>
               <Route path = "/catnew" component ={ CatNew }/>
               <Route path = "/catedit/:id" component ={ CatEdit }/>
@@ -37,7 +42,7 @@ class App extends Component {
           </Router>
 
           {/* -----PROPS----- */}
-          catData = {this.state.catData}
+        
          
 
 
