@@ -25,3 +25,5 @@ let mockCats = [
     },
 ]
 
+export default mockCats
+
