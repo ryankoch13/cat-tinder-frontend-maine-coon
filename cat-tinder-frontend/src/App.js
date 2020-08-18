@@ -22,12 +22,8 @@ class App extends Component {
     }
   }
   
-<<<<<<< HEAD
-  render(props) {
-=======
   render() {
     console.log(this.state.cats);
->>>>>>> b81ba12c2b1ecf9e679d545914f04e4de3a83550
     return (
         <React.Fragment>
           {/* -----ROUTERS----- */}

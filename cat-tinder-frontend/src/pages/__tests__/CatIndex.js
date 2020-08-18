@@ -6,6 +6,7 @@ import {shallow} from 'enzyme';
 import mockCats from '../../mockCats.js'
 
 
+ //--------------------------------------// 
 Enzyme.configure({adapter: new Adapter()})
 
 it('renders the cat index', () => {

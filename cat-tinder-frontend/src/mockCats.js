@@ -23,10 +23,14 @@ let mockCats = [
         age: 3,
         enjoys: "lying in sunny spots of the house."
     },
+    {
+        id: 5,
+        name: "Test",
+        age: 3,
+        enjoys: "lying in sunny spots of the house."
+    },
+
 ]
 
-<<<<<<< HEAD
-=======
 export default mockCats
->>>>>>> b81ba12c2b1ecf9e679d545914f04e4de3a83550
 

@@ -1,0 +1,7 @@
+.container {
+    columns: 3 auto ;
+  }
+
+.card {
+    break-inside: avoid-column;
+}
