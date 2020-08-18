@@ -25,4 +25,8 @@ let mockCats = [
     },
 ]
 
+<<<<<<< HEAD
+=======
+export default mockCats
+>>>>>>> b81ba12c2b1ecf9e679d545914f04e4de3a83550
 

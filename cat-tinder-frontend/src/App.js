@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './App.css';
-import mockCats from './mockCats.js'
+import mockCats from './mockCats.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -22,7 +22,12 @@ class App extends Component {
     }
   }
   
+<<<<<<< HEAD
   render(props) {
+=======
+  render() {
+    console.log(this.state.cats);
+>>>>>>> b81ba12c2b1ecf9e679d545914f04e4de3a83550
     return (
         <React.Fragment>
           {/* -----ROUTERS----- */}
@@ -33,7 +38,16 @@ class App extends Component {
                 path = "/catindex" 
                 render={ (props) => <CatIndex cats={this.state.cats} /> } 
               />
-              <Route path = "/catshow/:id" component ={ CatShow }/>
+              <Route 
+                path = "/catshow/:id" 
+                render = { (props) => {
+                  let id = props.match.params.id
+                  let cat = this.state.cats.find (cat => cat.id === parseInt(id))
+                  return(
+                    <CatShow cat={cat}/>
+                  )
+                }}
+              />
               <Route path = "/catnew" component ={ CatNew }/>
               <Route path = "/catedit/:id" component ={ CatEdit }/>
               <Route component ={ NotFound }/>
