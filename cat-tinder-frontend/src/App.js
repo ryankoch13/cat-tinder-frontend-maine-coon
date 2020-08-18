@@ -23,7 +23,6 @@ class App extends Component {
   }
   
   render(props) {
-    console.log(this.state.cats);
     return (
         <React.Fragment>
           {/* -----ROUTERS----- */}
