@@ -30,6 +30,12 @@ class App extends Component {
     console.log("editCat:", editCat)
     console.log("id:", id)
   }
+
+  deleteCat = (id) => {
+    console.log("deledCatId:", id)
+  }
+
+    
   
   render() {
     console.log(this.state.cats);
@@ -49,7 +55,7 @@ class App extends Component {
                   let id = props.match.params.id
                   let cat = this.state.cats.find (cat => cat.id === parseInt(id))
                   return(
-                    <CatShow cat={cat}/>
+                    <CatShow cat={cat} deleteCat = {this.deleteCat}/>
                   )
                 }}
               />
@@ -69,6 +75,7 @@ class App extends Component {
                     )
                 }}
               />
+              <Route path={"/catdelete/:id"}
               <Route component ={ NotFound }/>
             </Switch>
           </Router>

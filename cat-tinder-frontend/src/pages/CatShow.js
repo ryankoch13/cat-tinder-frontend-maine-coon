@@ -3,9 +3,20 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import mockCats from '../mockCats.js';
 import { NavLink } from 'react-router-dom';
-
+import {Button} from 'reactstrap';
 
 export class CatsHome extends Component {
+    constructor(){
+        super(props)
+        this.state = {
+            isDeleted: false
+        }
+    }
+
+    handleClick = () => {
+        this.props.deleteCat(this.props.cat.id);
+        this.setState( {isDeleted = true} );
+    }
     render() {
         return (
             <div>
@@ -19,6 +30,11 @@ export class CatsHome extends Component {
                     <p>Back to Index!</p>
                 </NavLink>
                 <Footer />
+                <Button onClick = {this.handleClick()}>
+                    Delete Cat
+                </Button>
+                {this.state.isDeleted && <Redirect to = "/catindex" />}
+
             </div>
         )
     }
