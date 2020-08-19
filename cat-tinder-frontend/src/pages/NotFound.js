@@ -8,7 +8,7 @@ export class CatsHome extends Component {
         return (
             <div>
                 <Header />
-                
+                <h3>404 Page Not Found</h3>
 
                 <Footer />
             </div>

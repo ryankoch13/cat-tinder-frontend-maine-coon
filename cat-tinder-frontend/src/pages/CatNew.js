@@ -12,16 +12,23 @@ export class CatsHome extends Component {
             form: {
                 name: "",
                 age: "",
-                enjoys: ""
-            }
+                enjoys: "",
+            },
+            success: false
         }      
     }
     
     handleChange = (e) => {
         let {form} = this.state;
-        form[e.taget.name] = e.target.value;
-        this.setState( {form: form} )
+        form[e.target.name] = e.target.value;
+        this.setState({ form: form })
     }
+
+    handleSubmit = () => {
+        this.props.createNewCat(this.state.form)
+        this.setState({ success: true })
+    }
+
     render() {
         return (
             <div>
@@ -54,10 +61,13 @@ export class CatsHome extends Component {
                             onChange = {this.handleChange}
                         />
                     </FormGroup>
+                    <Button name="submit" color="secondary"
+                    onClick = { this.handleSubmit }>
+                        Submit
+                    </Button>
                 </Form>
-                
-
                 <Footer />
+            { this.state.success && <Redirect to = "/catindex" />}
             </div>
         )
     }
