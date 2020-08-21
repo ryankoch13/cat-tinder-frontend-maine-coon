@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import {Form, FormGroup, Input, Label, Button} from 'reactstrap';
 import {Redirect} from 'react-router-dom'
 
-export class CatsHome extends Component {
+class CatEdit extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -77,4 +77,4 @@ export class CatsHome extends Component {
     }
 }
 
-export default CatsHome
+export default CatEdit

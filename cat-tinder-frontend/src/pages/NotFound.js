@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 
-export class CatsHome extends Component {
+export class NotFound extends Component {
     render() {
         return (
             <div>
@@ -16,4 +16,4 @@ export class CatsHome extends Component {
     }
 }
 
-export default CatsHome
+export default NotFound

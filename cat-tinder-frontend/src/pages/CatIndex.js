@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { NavLink } from 'react-router-dom';
-import CatIndex from './pages_css/CatIndex.css';
+import './pages_css/CatIndex.css';
 
 // Reactstrap Imports
 import {
@@ -12,7 +12,8 @@ import {
 import { Container, Row, Col } from 'reactstrap';
 
 //------------------------------------//
-export class CatsHome extends Component {
+
+class CatIndex extends Component {
     render() {
         console.log( this.props.cats )
         return (
@@ -25,12 +26,12 @@ export class CatsHome extends Component {
                                 return(
                                     <div key={index}>
                                         <Card>
-                                            <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" />
+                                            {/* <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" /> */}
                                                 <CardBody>
-                                                    <NavLink to = {`/catshow/${cat.id}`}>
-                                                        <CardTitle>
-                                                            {cat.name}  
-                                                        </CardTitle>
+                                                <NavLink to = {`/catshow/${cat.id}`}>
+                                                    <CardTitle>
+                                                        {cat.name}  
+                                                    </CardTitle>
                                                     </NavLink>
                                                     <CardSubtitle>
                                                         About: {cat.enjoys}
@@ -38,35 +39,13 @@ export class CatsHome extends Component {
                                                     <CardText>
                                                         Age: {cat.age}
                                                     </CardText>
-                                                    <Button>Button</Button>
+                                                    
+                                                        <Button>View My Profile</Button>
+                                                    
                                                 </CardBody>
                                         </Card>
                                     </div> 
-                                )
-                            // } //end of first if
-                            // if( index % 2 !== 0) {
-                            //     return(
-                            //         <div key={index} style={{float: 'right'}}>
-                            //             <Card>
-                            //                 <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" />
-                            //                     <CardBody>
-                            //                         <NavLink to = {`/catshow/${cat.id}`}>
-                            //                             <CardTitle>
-                            //                                 {cat.name}  
-                            //                             </CardTitle>
-                            //                         </NavLink>
-                            //                         <CardSubtitle>
-                            //                             About: {cat.enjoys}
-                            //                         </CardSubtitle>
-                            //                         <CardText>
-                            //                             Age: {cat.age}
-                            //                         </CardText>
-                            //                         <Button>Button</Button>
-                            //                     </CardBody>
-                            //             </Card>
-                            //         </div> 
-                            //     )
-                            // } //end of second if                
+                                )              
                         })}   
                     </Container>
                 <Footer />
@@ -75,5 +54,5 @@ export class CatsHome extends Component {
     }
 }                               
                                 
-export default CatsHome
+export default CatIndex
 

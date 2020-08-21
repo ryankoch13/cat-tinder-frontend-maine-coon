@@ -28,6 +28,7 @@ class App extends Component {
     fetch('http://localhost:3000/cats')
     .then(response => {
       if (response.status === 200) {
+        console.log(response.json)
         return response.json();
       }
     })
@@ -44,9 +45,18 @@ class App extends Component {
 
 
 
-  createNewCat = (newCat) => {
-    console.log(newCat)
-  }
+  // createNewCat = (newCat) => {
+  //   fetch('http://localhost:3000/cats', {
+  //     body: JSON.stringify(newCat),
+  //     headers: { "Content-Type": "application/json"},
+  //     method: "POST"
+  //   }).then(response => {
+  //     if ()
+  //   })
+  // }
+
+
+
 
   editCat = (editCat, id) => {
     console.log("editCat:", editCat)
@@ -69,15 +79,15 @@ class App extends Component {
               <Route exact path = "/" component={ CatsHome }/>
               <Route 
                 path = "/catindex" 
-                render={ (props) => <CatIndex cats={this.state.cats} /> } 
+                render= { (props) => <CatIndex cats={this.state.cats} /> } 
               />
               <Route 
-                path = "/catshow/:id" 
+                exact path = {"/catshow/:id"} 
                 render = { (props) => {
                   let id = props.match.params.id
                   let cat = this.state.cats.find (cat => cat.id === parseInt(id))
                   return(
-                    <CatShow cat={cat} deleteCat = {this.deleteCat}/>
+                    <CatShow cat={ cat } deleteCat = {this.deleteCat} />
                   )
                 }}
               />
@@ -86,7 +96,7 @@ class App extends Component {
               render = { (props) => <CatNew createNewCat= { this.createNewCat }/> }
               />
               <Route exact path={"/catedit/:id"}
-                render={ (props) => {
+                render= { (props) => {
                   let id = props.match.params.id
                   let cat = this.state.cats.find(cat => cat.id === parseInt(id))
                   return(

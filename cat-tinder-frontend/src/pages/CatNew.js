@@ -5,7 +5,7 @@ import {Redirect} from 'react-router-dom';
 import {Form, FormGroup, Input, Label, Button} from 'reactstrap';
 
 
-export class CatsHome extends Component {
+class CatNew extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -73,4 +73,4 @@ export class CatsHome extends Component {
     }
 }
 
-export default CatsHome
+export default CatNew
