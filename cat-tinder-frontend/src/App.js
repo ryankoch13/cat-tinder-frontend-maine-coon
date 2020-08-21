@@ -41,19 +41,25 @@ class App extends Component {
   }
 
     //Fetch for our Index and Show Methods
+  createNewCat = (newCat) => {
+    fetch('http://localhost:3000/cats', {
+      body: JSON.stringify(newCat),
+      headers: { "Content-Type": "application/json"},
+      method: "POST"
+    })
+    .then(response => {
+      if (response.status === 200) {
+        this.componentDidMount();
+      } else {
+        alert ("Please retry filling out form with new inputs")
+      }
+      return response;
+      })
+    .catch (errors => {
+      console.log(errors);
+    })
+  }
 
-
-
-
-  // createNewCat = (newCat) => {
-  //   fetch('http://localhost:3000/cats', {
-  //     body: JSON.stringify(newCat),
-  //     headers: { "Content-Type": "application/json"},
-  //     method: "POST"
-  //   }).then(response => {
-  //     if ()
-  //   })
-  // }
 
 
 
@@ -64,7 +70,21 @@ class App extends Component {
   }
 
   deleteCat = (id) => {
-    console.log("deledCatId:", id)
+    return fetch (`http://localhost:3000/cats/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => {
+      if(response.status === 200) {
+        this.componentDidMount()
+      }
+      return response
+    })
+    .catch(errors => {
+      console.log("delete errors:", errors)
+    })
   }
 
     
@@ -86,6 +106,7 @@ class App extends Component {
                 render = { (props) => {
                   let id = props.match.params.id
                   let cat = this.state.cats.find (cat => cat.id === parseInt(id))
+                  console.log(cat);
                   return(
                     <CatShow cat={ cat } deleteCat = {this.deleteCat} />
                   )

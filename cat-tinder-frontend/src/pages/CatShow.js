@@ -16,6 +16,7 @@ class CatShow extends Component {
     handleClick = () => {
         this.props.deleteCat(this.props.cat.id);
         this.setState( {isDeleted: true} );
+        console.log("Handle Click!")
     }
     render() {
         return (
@@ -30,7 +31,7 @@ class CatShow extends Component {
                     <p>Back to Index!</p>
                 </NavLink>
                 <Footer />
-                <Button onClick = {this.handleClick()}>
+                <Button onClick = {this.handleClick}>
                     Delete Cat
                 </Button>
                 {this.state.isDeleted && <Redirect to = "/catindex" />}
