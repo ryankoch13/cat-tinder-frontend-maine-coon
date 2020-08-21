@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import mockCats from '../mockCats.js';
-import { NavLink } from 'react-router-dom';
+// import mockCats from '../mockCats.js';
+import { NavLink, Redirect } from 'react-router-dom';
 import {Button} from 'reactstrap';
 
 export class CatsHome extends Component {
-    constructor(){
+    constructor(props){
         super(props)
         this.state = {
             isDeleted: false
@@ -15,7 +15,7 @@ export class CatsHome extends Component {
 
     handleClick = () => {
         this.props.deleteCat(this.props.cat.id);
-        this.setState( {isDeleted = true} );
+        this.setState( {isDeleted: true} );
     }
     render() {
         return (

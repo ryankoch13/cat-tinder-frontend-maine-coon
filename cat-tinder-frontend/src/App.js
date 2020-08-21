@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import mockCats from './mockCats.js';
+// import mockCats from './mockCats.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -18,9 +18,31 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      cats: mockCats,
+      // cats: mockCats,
+      cats: []
     }
   }
+
+  //Fetch for our Index and Show Methods
+  componentDidMount() {
+    fetch('http://localhost:3000/cats')
+    .then(response => {
+      if (response.status === 200) {
+        return response.json();
+      }
+    })
+    .then(catsArray => {
+      this.setState({cats: catsArray})
+    })
+    .catch(errors => {
+      console.log(errors);
+    })
+  }
+
+    //Fetch for our Index and Show Methods
+
+
+
 
   createNewCat = (newCat) => {
     console.log(newCat)
@@ -75,7 +97,7 @@ class App extends Component {
                     )
                 }}
               />
-              <Route path={"/catdelete/:id"}
+              <Route path={"/catdelete/:id"}/>
               <Route component ={ NotFound }/>
             </Switch>
           </Router>
