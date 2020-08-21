@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class header extends Component {
     render() {
         return (
-            <div>
+            <div class = "header">
                 <h1>Cat Tinder.</h1>
             </div>
         )

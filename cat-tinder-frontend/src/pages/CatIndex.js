@@ -18,7 +18,7 @@ class CatIndex extends Component {
         console.log( this.props.cats )
         return (
             <div>
-                <Header />
+                <Header/>
                     <h3>All the Cats</h3>
                     <Container>
                         { this.props.cats.map((cat, index) => {
