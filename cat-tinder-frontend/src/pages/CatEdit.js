@@ -11,7 +11,8 @@ class CatEdit extends Component {
             form : {
                 name: "",
                 age: "",
-                enjoys: ""
+                enjoys: "",
+                image: ""
             },
             success : false
         }
@@ -27,7 +28,7 @@ class CatEdit extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.editCat(this.state.form, this.state.id)
+        this.props.editCat(this.state.form, this.props.cat.id)
         this.setState({ success: true })
     }
 
@@ -60,6 +61,15 @@ class CatEdit extends Component {
                             type = "text"
                             name = "enjoys"
                             value = {this.state.form.enjoys} 
+                            onChange = {this.handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label>Enter Image URL:</Label>
+                        <Input
+                            type = "text"
+                            name = "image"
+                            value = {this.state.form.image} 
                             onChange = {this.handleChange}
                         />
                     </FormGroup>

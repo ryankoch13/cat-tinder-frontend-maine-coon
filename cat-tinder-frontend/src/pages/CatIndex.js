@@ -26,9 +26,11 @@ class CatIndex extends Component {
                                 return(
                                     <div key={index}>
                                         <Card>
+                                        <CardImg top width="100%" src = {`${cat.image}`} alt="Profile pic" />
                                             {/* <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" /> */}
                                                 <CardBody>
                                                 <NavLink to = {`/catshow/${cat.id}`}>
+                                                    
                                                     <CardTitle>
                                                         {cat.name}  
                                                     </CardTitle>

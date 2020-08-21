@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 // import mockCats from '../mockCats.js';
 import { NavLink, Redirect } from 'react-router-dom';
 import {Button} from 'reactstrap';
+import './pages_css/CatShow.css';
 
 class CatShow extends Component {
     constructor(props){
@@ -23,6 +24,7 @@ class CatShow extends Component {
             <div>
                 <Header />
                 <div>
+                    <img src = {`${this.props.cat.image}`} alt="Profile pic"/>
                     <h4>Name: {this.props.cat.name} </h4>
                     <p>Age: {this.props.cat.age} </p>
                     <p>Enjoys: {this.props.cat.enjoys} </p>
@@ -34,6 +36,9 @@ class CatShow extends Component {
                 <Button onClick = {this.handleClick}>
                     Delete Cat
                 </Button>
+                <NavLink to = {`/catedit/${this.props.cat.id}`}>
+                    <Button>Edit Cat</Button>
+                </NavLink>
                 {this.state.isDeleted && <Redirect to = "/catindex" />}
 
             </div>

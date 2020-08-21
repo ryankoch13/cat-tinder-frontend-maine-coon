@@ -61,13 +61,27 @@ class App extends Component {
   }
 
 
-
-
-
-  editCat = (editCat, id) => {
-    console.log("editCat:", editCat)
-    console.log("id:", id)
+  editCat = (editcat, id) => {
+    return fetch(`http://localhost:3000/cats/${id}`, {
+      body: JSON.stringify(editcat),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => {
+      if (response.status === 200) {
+        this.componentDidMount()
+      } else {
+        alert ("Update Unsuccessful")
+      }
+      return response
+    })
+    .catch(errors => {
+      console.log("edit errors", errors)
+    })
   }
+
 
   deleteCat = (id) => {
     return fetch (`http://localhost:3000/cats/${id}`, {
